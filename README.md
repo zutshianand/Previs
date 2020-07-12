@@ -1,4 +1,4 @@
-# Prepy
+# Pretorch
 This is a preprocessing library in python which has all the preprocessing and visualisations tools available for data science problems
 
 ## Different data sets and loaders
