@@ -164,6 +164,92 @@ print(image)
 
 ### Datasets for Textual data in textual file paths (.txt)
 
+Since text is a sequential form of data, there can be two forms of problems associated to textual data.
+We will be looking at both of them and the way of preprocessing them in this library. 
+
+#### Many to many modelling
+These include problem statements where we are faced with modelling **many** (the textual data) to **many**
+output data points. These many output data points are usually sentence tagging. We will be looking at how to
+process data in sequence tagging problems.
+
+```python
+from dataloaders.MultiStreamDataLoader import MultiStreamDataLoader
+from datasets.TextDataset import TextDataset
+
+predict_list = [
+    [0, 0, 1]
+]
+data_list = [
+    ["I play ball"]
+ ]
+datasets = TextDataset.split_datasets(data_list, 3, 1, maintain_order=True, predict_list=predict_list)
+loader = MultiStreamDataLoader(datasets)
+for batch in loader:
+    print(batch)
+```
+
+Please note that the *predict_list* and *data_list* needs to be of the above format for this to work.
+In case the textual data is present in a dataframe, we need to read it from the dataframe and then
+invoke the above methods. 
+
+In case the textual data is present in separate text files, 
+we need to incorporate the ```build_text_file_from_cls``` method to build a list of lists of the text files and
+the corresponding tags. 
+
+#### Many to one modelling
+These include problem statements where we are faced with modelling **many** (the textual data) to **one**
+output data points. These one output data points are usually classification values (or classes). We will be looking at how to
+process data in classification problems as well.
+
+For the sake of simplification, we can consider the distribution of the textual data into different
+classes as follows:
+        
+        root/class_x/xxx.ext
+        root/class_x/xxy.ext
+        root/class_x/xxz.ext
+        .
+        .
+        .
+        root/class_y/123.ext
+        root/class_y/nsdf3.ext
+        root/class_y/asd932_.ext
+        
+```python
+from torchvision import transforms
+
+from dataloaders.MultiStreamDataLoader import MultiStreamDataLoader
+from datasets.TextDataset import TextDataset
+from processors.TextProcessor import TextProcessor
+
+from util.PreprocessingUtils import build_text_file_from_cls
+
+datasets_for_classes = []
+loaders_for_classes = []
+classes = [1]
+num_epochs = 10
+
+for cls in classes:
+    data_list_for_class = build_text_file_from_cls("<base_dir_path>", cls)
+    datasets_for_class = TextDataset.split_datasets(data_list_for_class, 3, 1, transform=transforms.Compose([
+             TextProcessor()
+         ]))
+    loaders_for_classes.append(MultiStreamDataLoader(datasets_for_class))
+
+
+for epoch in range(num_epochs):
+    for i in range(len(classes)):
+        loader = loaders_for_classes[i]
+        for batch in loader:
+            print(batch)
+            # train on model using this data bach
+```
+
+Once you do this, you will have the preprocessed data set. We stop here!
+Post this, you can modify the output of the preprocessing and do your classification. 
+We encourage to use [this](https://pytorch.org/hub/huggingface_pytorch-transformers/) for
+help. You can also take a look at [this](https://medium.com/@aniruddha.choudhury94/part-2-bert-fine-tuning-tutorial-with-pytorch-for-text-classification-on-the-corpus-of-linguistic-18057ce330e1) Medium blog if you want to understand how to implement
+BERT.
+
 ### Datasets for Signals
 
 ### Datasets for Sound
