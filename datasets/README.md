@@ -1,9 +1,6 @@
-# Pretorch
-This is a preprocessing library in python which has all the preprocessing and visualisations tools available for data science problems
+# Data sets and loaders
 
-## Different data sets and loaders
-
-### Datasets for Data in csv files 
+## Datasets for Data in csv files 
 In order to use the tabular data set, we have to decide upon the following:
 * The csv file which we need to use
 * The pre-processing we have to do on each row of the csv file
@@ -39,7 +36,7 @@ for i_batch, sample_batched in enumerate(dataloader):
     print(sample_batched)
 ```
 
-### Datasets for Visual data in image file paths (.png)
+## Datasets for Visual data in image file paths (.png)
 In order for this transformation and data loading, we need to have the data in the form of images (.png) 
 files in different folders. For the sake of simplicity, we would assume that the training images are in a different 
 folder and the testing images are in a different folder.
@@ -162,12 +159,12 @@ image, sample = next(image_iter)
 print(image)
 ```
 
-### Datasets for Textual data in textual file paths (.txt)
+## Datasets for Textual data in textual file paths (.txt)
 
 Since text is a sequential form of data, there can be two forms of problems associated to textual data.
 We will be looking at both of them and the way of preprocessing them in this library. 
 
-#### Many to many modelling
+### Many to many modelling
 These include problem statements where we are faced with modelling **many** (the textual data) to **many**
 output data points. These many output data points are usually sentence tagging. We will be looking at how to
 process data in sequence tagging problems.
@@ -196,7 +193,7 @@ In case the textual data is present in separate text files,
 we need to incorporate the ```build_text_file_from_cls``` method to build a list of lists of the text files and
 the corresponding tags. 
 
-#### Many to one modelling
+### Many to one modelling
 These include problem statements where we are faced with modelling **many** (the textual data) to **one**
 output data points. These one output data points are usually classification values (or classes). We will be looking at how to
 process data in classification problems as well.

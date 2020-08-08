@@ -1,9 +1,9 @@
-from catboost import CatBoostRegressor
 import numpy as np
-from sklearn import metrics
-from sklearn.linear_model import LinearRegression, Ridge, Lasso, ElasticNet
-from sklearn.model_selection import GridSearchCV
 import xgboost as xgb
+from catboost import CatBoostRegressor
+from sklearn import metrics
+from sklearn.linear_model import ElasticNet, Lasso, LinearRegression, Ridge
+from sklearn.model_selection import GridSearchCV
 
 
 def cat_boost_regressor(X_train, y_train,

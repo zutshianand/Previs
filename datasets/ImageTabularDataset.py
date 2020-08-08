@@ -1,8 +1,7 @@
 from os import listdir
-from os.path import join, isfile
+from os.path import isfile, join
 
 import pandas as pd
-
 import torch
 from PIL import Image
 from torch.utils.data import Dataset

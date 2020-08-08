@@ -1,11 +1,12 @@
 from random import random
 
 import matplotlib
+import matplotlib.pyplot as plt
 import numpy as np
-
 import plotly.express as px
-import plotly.graph_objects as go
 import plotly.figure_factory as ff
+import plotly.graph_objects as go
+import seaborn as sns
 
 
 def numerical_vs_numerical_or_categorical(dataframe, numerical_col_1,
@@ -306,3 +307,20 @@ def multiple_cat_vars(dataframe, cat_col_list,
                                  color_continuous_scale=px.colors.sequential.Inferno)  # Color for Pclass
     fig.update_layout(title=plt_title)
     fig.show()
+
+
+def correlation_matrix(dataframe, col_list_to_drop):
+    """This plots a correlation matrix in a dataframe
+    @param dataframe: The dataframe
+    @param col_list_to_drop: The columns which we should skip.
+    NOTE : We should only have numerical columns in the correlations plot.
+    """
+    f, ax = plt.subplots(figsize=[20, 15])
+    sns.heatmap(dataframe.drop(col_list_to_drop, axis=1).corr(),
+                annot=True,
+                fmt=".2f",
+                ax=ax,
+                cbar_kws={'label': 'Correlation Coefficient'},
+                cmap='viridis')
+    ax.set_title("Correlation Matrix", fontsize=18)
+    plt.show()

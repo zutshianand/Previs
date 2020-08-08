@@ -1,6 +1,7 @@
-from __future__ import print_function, division
-import torch
+from __future__ import division, print_function
+
 import pandas as pd
+import torch
 from torch.utils.data import Dataset
 
 

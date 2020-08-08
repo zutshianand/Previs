@@ -1,5 +1,5 @@
-from itertools import chain
 import random
+from itertools import chain
 
 from torch.utils.data.dataset import IterableDataset
 
