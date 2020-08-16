@@ -227,7 +227,7 @@ def continuous_var_distribution_vs_single_cat_var(dataframe, numerical_col_1,
                              pointpos=-1.8,
                              boxpoints='all',  # Display all points in plot
                              marker_color=hex_colors_names[i],
-                             name=cat_col_name[i]))
+                             name=cat_col_list[i]))
     fig.update_layout(title=plot_title)
     fig.show()
 
@@ -324,3 +324,13 @@ def correlation_matrix(dataframe, col_list_to_drop):
                 cmap='viridis')
     ax.set_title("Correlation Matrix", fontsize=18)
     plt.show()
+
+
+def correlation_graphs(dataframe, col_list):
+    """This method plots the different graphs
+    between the numerical variables in the dataframe
+    @param dataframe: The dataframe
+    @param col_list: The list of columns to be plotted
+    """
+    sns.pairplot(dataframe[col_list])
+

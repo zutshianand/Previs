@@ -2,6 +2,7 @@ import numpy as np
 import xgboost as xgb
 from catboost import CatBoostRegressor
 from sklearn import metrics
+from sklearn.ensemble import StackingRegressor
 from sklearn.linear_model import ElasticNet, Lasso, LinearRegression, Ridge
 from sklearn.model_selection import GridSearchCV
 
@@ -65,7 +66,7 @@ def ridge_regression(X_train, y_train):
                                    cv=5)
     ridge_regressor.fit(X_train, y_train)
 
-    return ridge_regressor, ridge_regressor.best_params_, ridge_regressor.best_score_
+    return ridge_regressor.best_estimator_, ridge_regressor.best_params_, ridge_regressor.best_score_
 
 
 def lasso_regression(X_train, y_train):
@@ -83,7 +84,7 @@ def lasso_regression(X_train, y_train):
                                    cv=5)
     lasso_regressor.fit(X_train, y_train)
 
-    return lasso_regressor, lasso_regressor.best_params_, lasso_regressor.best_score_
+    return lasso_regressor.best_estimator_, lasso_regressor.best_params_, lasso_regressor.best_score_
 
 
 def elastic_net_regression(X_train, y_train):
@@ -103,7 +104,7 @@ def elastic_net_regression(X_train, y_train):
                           cv=10)
     search.fit(X_train, y_train)
 
-    return search, search.best_params_, search.best_score_
+    return search.best_estimator_, search.best_params_, search.best_score_
 
 
 def xgboost_regression(X_train, y_train,
@@ -134,3 +135,19 @@ def xgboost_regression(X_train, y_train,
     xg_reg, metrics.mean_absolute_error(y_actual, y_pred),
     metrics.mean_squared_error(y_actual, y_pred),
     np.sqrt(metrics.mean_squared_error(y_actual, y_pred))
+
+
+def stacking_regressor(regressor_list, X_train,
+                       y_train):
+    """This method stacks different regressors together
+    into an ensemble model to do the predictions
+    @param regressor_list: List of regression models
+    @param X_train: Training dataframe
+    @param y_train: Test dataframe
+    @return: The trained ensembled model
+    """
+    model = StackingRegressor(estimators=regressor_list,
+                              final_estimator=LinearRegression())
+    model.fit(X_train, y_train)
+    return model
+
