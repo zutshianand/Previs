@@ -386,7 +386,10 @@ def remove_html(text):
     @param text: String of text
     @return: Cleaned text
     """
-    return BeautifulSoup(text, "lxml").text
+    try:
+        return BeautifulSoup(text, "lxml").text
+    except:
+        return text
 
 
 def chat_words_conversion(text, chat_words_list, chat_words_map_dict):
@@ -436,11 +439,10 @@ class TextProcessor(object):
     def __init__(self):
         self.mapping_dict = load_preprocessing_data()
 
-    def process(self, text: str, word_freq=None, should_remove_emoticons=True, has_html=False, is_chat=False) -> str:
+    def process(self, text: str, word_freq=None, should_remove_emoticons=True, is_chat=False) -> str:
         """
         Apply all different processing techniques in sequential order on
         a piece of text/string.
-        @param has_html: Does the string have html in it
         @param is_chat: Is it a chat text?
         @param should_remove_emoticons: Should we remove emoticons or
         not, if not then we will convert them if they are present
@@ -480,8 +482,7 @@ class TextProcessor(object):
         text = replace_numbers(text)
         text = replace_urls(text)
         text = replace_user_handles(text)
-        if has_html:
-            text = remove_html(text)
+        text = remove_html(text)
         if is_chat:
             chat_words_map_dict = {}
             chat_words_list = []
