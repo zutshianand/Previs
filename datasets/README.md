@@ -246,7 +246,3 @@ Post this, you can modify the output of the preprocessing and do your classifica
 We encourage to use [this](https://pytorch.org/hub/huggingface_pytorch-transformers/) for
 help. You can also take a look at [this](https://medium.com/@aniruddha.choudhury94/part-2-bert-fine-tuning-tutorial-with-pytorch-for-text-classification-on-the-corpus-of-linguistic-18057ce330e1) Medium blog if you want to understand how to implement
 BERT.
-
-### Datasets for Signals
-
-### Datasets for Sound
