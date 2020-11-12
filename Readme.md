@@ -1,3 +1,5 @@
+[![PyPI version fury.io](https://badge.fury.io/py/ansicolortags.svg)](https://pypi.org/project/previs/1.01/)
+
 # PREVIS
 
 PREVIS stands for PREprocessing and VIsualisation. This package consists of essential code 
