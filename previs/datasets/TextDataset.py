@@ -3,7 +3,7 @@ from itertools import chain
 
 from torch.utils.data.dataset import IterableDataset
 
-from util.PreprocessingUtils import merge_lists
+from previs.util.PreprocessingUtils import merge_lists
 
 
 class TextDataset(IterableDataset):

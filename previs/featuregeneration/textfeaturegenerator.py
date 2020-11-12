@@ -12,11 +12,11 @@ from gensim import corpora, models
 from plotly import tools
 from wordcloud import STOPWORDS, ImageColorGenerator, WordCloud
 
-from data.badwords import BAD_WORDS
-from processors.TextProcessor import tag_part_of_speech
-from util.TextProcessingUtils import (CLEANED_TEXT_COL_NAME,
-                                      convert_text_col_to_corpus,
-                                      get_stopwords)
+from previs.data.badwords import BAD_WORDS
+from previs.processors.TextProcessor import tag_part_of_speech
+from previs.util.TextProcessingUtils import (CLEANED_TEXT_COL_NAME,
+                                             convert_text_col_to_corpus,
+                                             get_stopwords)
 
 color = sns.color_palette()
 

@@ -14,12 +14,12 @@ from nltk import PorterStemmer, WordNetLemmatizer, pos_tag
 from nltk.corpus import stopwords, wordnet
 from spellchecker import SpellChecker
 
-from data.chatwords import CHAT_WORDS
-from data.emoticons import EMOTICONS, UNICODE_EMO
-from util.normalizeTextUtils import normalize_hyphenated_words, normalize_quotation_marks, normalize_repeating_chars, \
+from previs.data.chatwords import CHAT_WORDS
+from previs.data.emoticons import EMOTICONS, UNICODE_EMO
+from previs.util.normalizeTextUtils import normalize_hyphenated_words, normalize_quotation_marks, normalize_repeating_chars, \
     normalize_unicode, normalize_whitespace
-from util.textRemoveUtils import remove_accents
-from util.textReplaceUtils import replace_currency_symbols, replace_emojis, replace_hashtags, replace_phone_numbers, \
+from previs.util.textRemoveUtils import remove_accents
+from previs.util.textReplaceUtils import replace_currency_symbols, replace_emojis, replace_hashtags, replace_phone_numbers, \
     replace_numbers, replace_emails, replace_urls, replace_user_handles
 
 

@@ -4,7 +4,7 @@ from gensim import corpora, models, similarities
 from gensim.models.fasttext import FastText as FT_gensim
 from wordcloud import STOPWORDS
 
-from processors.TextProcessor import TextProcessor
+from previs.processors.TextProcessor import TextProcessor
 
 CLEANED_TEXT_COL_NAME = 'cleaned_text'
 

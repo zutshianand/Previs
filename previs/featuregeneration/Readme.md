@@ -38,7 +38,7 @@ Let us say we have a dataframe **DF**. We need to generate more features from th
 Always remember to use this once you have cleaned your dataset completely.
 
 ```python
-from featuregeneration.featuregeneration import engineer_features_using_feature_tools
+from previs.featuregeneration.featuregeneration import engineer_features_using_feature_tools
 
 df_new = engineer_features_using_feature_tools(DF, 'id', key_variable_list_map)
 ```
@@ -104,7 +104,7 @@ matrix.
 
 We use the following to plot the correlation matrix
 ```python
-from visualisations.BasicPlots import correlation_matrix
+from previs.visualisations.BasicPlots import correlation_matrix
 
 correlation_matrix(dataframe, ['text_col_name', 'feat_cat_1'])
 ```

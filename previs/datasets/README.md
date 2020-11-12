@@ -6,7 +6,7 @@ In order to use the tabular data set, we have to decide upon the following:
 * The pre-processing we have to do on each row of the csv file
 * For traversing the tabular data for every item:
 ```python
-from datasets.TabularDataset import TabularDataset
+from previs.datasets.TabularDataset import TabularDataset
 
 dataset = TabularDataset(first_file_path="file_path")
 for i in range(len(dataset)):
@@ -19,8 +19,8 @@ Or it can be the case that we want to pre-process the data set in some manner, w
 from torch.utils.data import DataLoader
 from torchvision import transforms
 
-from datasets.TabularDataset import TabularDataset
-from processors.TabularProcessor import TabularProcessor
+from previs.datasets.TabularDataset import TabularDataset
+from previs.processors.TabularProcessor import TabularProcessor
 
 dataset = TabularDataset(first_file_path="/Users/anandzutshi/Desktop/RelationshipDataset.csv",
                             preprocess=transforms.Compose([
@@ -71,9 +71,9 @@ below and then use the inbuilt DataLoader for the same
 
 ```python
 from torchvision import transforms, models
-from datasets.ImageDataset import ImageDataset
+from previs.datasets.ImageDataset import ImageDataset
 from torch.utils.data import DataLoader
-from processors.ImageFeatureProcessor import ImageFeatureProcessor
+from previs.processors.ImageFeatureProcessor import ImageFeatureProcessor
 
 image_transforms = transforms.Compose([
                                 transforms.RandomRotation(30),
@@ -133,8 +133,8 @@ data directory.
 from torch.utils.data import DataLoader
 from torchvision import transforms
 
-from datasets.ImageTabularDataset import ImageTabularDataset
-from processors.TabularProcessor import TabularProcessor
+from previs.datasets.ImageTabularDataset import ImageTabularDataset
+from previs.processors.TabularProcessor import TabularProcessor
 
 dataset = ImageTabularDataset(image_dir_path="dir_images",
                               tabular_dir_path="tabular_path",
@@ -170,8 +170,8 @@ output data points. These many output data points are usually sentence tagging. 
 process data in sequence tagging problems.
 
 ```python
-from dataloaders.MultiStreamDataLoader import MultiStreamDataLoader
-from datasets.TextDataset import TextDataset
+from previs.dataloaders.MultiStreamDataLoader import MultiStreamDataLoader
+from previs.datasets.TextDataset import TextDataset
 
 predict_list = [
     [0, 0, 1]
@@ -214,11 +214,11 @@ classes as follows:
 ```python
 from torchvision import transforms
 
-from dataloaders.MultiStreamDataLoader import MultiStreamDataLoader
-from datasets.TextDataset import TextDataset
-from processors.TextProcessor import TextProcessor
+from previs.dataloaders.MultiStreamDataLoader import MultiStreamDataLoader
+from previs.datasets.TextDataset import TextDataset
+from previs.processors.TextProcessor import TextProcessor
 
-from util.PreprocessingUtils import build_text_file_from_cls
+from previs.util.PreprocessingUtils import build_text_file_from_cls
 
 datasets_for_classes = []
 loaders_for_classes = []

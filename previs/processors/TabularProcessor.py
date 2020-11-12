@@ -1,6 +1,6 @@
 import numpy as np
 
-from util.PreprocessingUtils import one_hot_encode_column
+from previs.util.PreprocessingUtils import one_hot_encode_column
 
 
 class TabularProcessor(object):
