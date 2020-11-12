@@ -14,9 +14,9 @@ class ImageDataset(Dataset):
         :param image_dir_path: This is the folder path where all the images are stored.
         The folder will only have image files ending with suitable extension
         :param classification_format: This is true when the directories are in the format
-        of a classification problem. See Readme.md for more details on this
+        of a classification problem. See README.md for more details on this
         :param transform: Composition of transformation to be applied sequentially are passed here.
-        User has to determine the transformations and pass it here. Refer to Readme.md for details.
+        User has to determine the transformations and pass it here. Refer to README.md for details.
         """
         self.image_dir_path = image_dir_path
         self.classification_format = classification_format

@@ -18,7 +18,7 @@ class ImageTabularDataset(Dataset):
         :param image_dir_path: This contains all the images in suitable image format
         :param tabular_dir_path: This is the path to the csv file
         :param classification_format: This is true when the directories are in the format
-        of a classification problem. See Readme.md for more details on this
+        of a classification problem. See README.md for more details on this
         :param image_transform: This is the composite transform for the images in the dataset
         :param tabular_transform: This is the composite transform for the csv rows in the dataset
         :param separator: This is the separator in the csv file used to read the dataset

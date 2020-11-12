@@ -11,7 +11,7 @@ class TextDataset(IterableDataset):
     def __init__(self, data_list, batch_size, transform=None,
                  maintain_order=False, predict_list=None):
         """
-        @param data_list: List of list of strings. Refer to Readme.md for more details
+        @param data_list: List of list of strings. Refer to README.md for more details
         @param batch_size: Batch size
         @param transform: The transformation class which is used here. We use the TextProcessor
         @param maintain_order: This is used to determine whether it is a many-to-one or many-to-many problem

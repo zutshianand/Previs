@@ -8,7 +8,7 @@ class MultiStreamDataLoader:
     def __init__(self, datasets):
         """
         @param datasets: These are the different types of datasets which
-        are used to make the multi stream data loader. Refer to Readme.md for more details
+        are used to make the multi stream data loader. Refer to README.md for more details
         on this.
         """
         self.datasets = datasets

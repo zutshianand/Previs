@@ -10,7 +10,7 @@ def engineer_features_using_feature_tools(data_frame, primary_key, key_variable_
     on it
     @param primary_key: This is the primary key of the dataframe. Usually some form of
     id.
-    @param key_variable_map: This is a dictionary. Please refer to the Readme.md in featuregeneration
+    @param key_variable_map: This is a dictionary. Please refer to the README.md in featuregeneration
     @return: Returns the new dataframe constituting of new features alongside other ones as well.
     """
     entity_set = ft.EntitySet(id='entity_set_id')

@@ -64,7 +64,7 @@ def plot_wordcloud(text, mask=None, max_words=200, max_font_size=100, figure_siz
 def generate_lsi_features(dataframe, text_col_name,
                           num_topics, batchsize):
     """This method cleans the dataset and generates the LSI
-    features using Gensim. Refer to Readme.md for more details on this.
+    features using Gensim. Refer to README.md for more details on this.
     @param dataframe: Dataframe name
     @param text_col_name: Name of the text data column
     @param num_topics: Number of topics which it will generate (10-20)
@@ -171,7 +171,7 @@ def word_count(text):
 
 def generate_features_from_text_column(dataframe, text_col_name):
     """This method performs the many processing and feature generation
-    tasks for the textual dataset. Please refer to Readme.md for the operations
+    tasks for the textual dataset. Please refer to README.md for the operations
     and how to use this method.
     @param dataframe: The name of the dataframe.
     @param text_col_name: The columns name of the textual data
