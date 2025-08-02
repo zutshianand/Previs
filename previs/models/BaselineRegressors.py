@@ -38,7 +38,7 @@ def linear_regression(X_train, y_train,
     @param y_train: Training dataset output
     @param X_val: Validation dataset input
     @param y_val: Validation dataset output
-    @return: The trained model, MAE, MSE and srt(MSE)
+    @return: The trained model, MAE, MSE and RMSE
     """
     regressor = LinearRegression()
     regressor.fit(X_train, y_train)
@@ -46,9 +46,12 @@ def linear_regression(X_train, y_train,
     y_pred = regressor.predict(X_val).flatten()
     y_actual = y_val.flatten()
 
-    regressor, metrics.mean_absolute_error(y_actual, y_pred),
-    metrics.mean_squared_error(y_actual, y_pred),
-    np.sqrt(metrics.mean_squared_error(y_actual, y_pred))
+    return (
+        regressor,
+        metrics.mean_absolute_error(y_actual, y_pred),
+        metrics.mean_squared_error(y_actual, y_pred),
+        np.sqrt(metrics.mean_squared_error(y_actual, y_pred))
+    )
 
 
 def ridge_regression(X_train, y_train):
@@ -114,7 +117,7 @@ def xgboost_regression(X_train, y_train,
     @param y_train: Training dataset output
     @param X_val: Validation dataset input
     @param y_val: Validation dataset output
-    @return: The trained model, MAE, MSE and srt(MSE)
+    @return: The trained model, MAE, MSE and RMSE
     """
     """
     objective: Determines the loss function to be used like reg:linear
@@ -132,9 +135,12 @@ def xgboost_regression(X_train, y_train,
     y_pred = xg_reg.predict(X_val).flatten()
     y_actual = y_val.flatten()
 
-    xg_reg, metrics.mean_absolute_error(y_actual, y_pred),
-    metrics.mean_squared_error(y_actual, y_pred),
-    np.sqrt(metrics.mean_squared_error(y_actual, y_pred))
+    return (
+        xg_reg,
+        metrics.mean_absolute_error(y_actual, y_pred),
+        metrics.mean_squared_error(y_actual, y_pred),
+        np.sqrt(metrics.mean_squared_error(y_actual, y_pred))
+    )
 
 
 def stacking_regressor(regressor_list, X_train,
