@@ -117,11 +117,9 @@ def vocab_check_coverage(text: list, *args) -> list:
 def remove_space(text: str, spaces: list, only_clean: bool = True) -> str:
     """Remove extra spaces and ending space if any.
     :param text: text to clean
-    :param text: spaces
+    :param spaces: spaces
     :param only_clean: simply clean texts or also replace texts
     :return: cleaned text
-    @param only_clean:
-    @param spaces:
     """
     if not only_clean:
         for space in spaces:
