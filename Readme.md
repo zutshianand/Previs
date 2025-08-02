@@ -48,14 +48,48 @@ highly recommend you to mould and modify the code as per your own convenience.
 - Introduced an `advanced` feature generation module containing lightweight
   implementations for TF-IDF, averaged word embeddings, and simple image
   augmentation helpers.
+- Added optional wrappers around interactive visualisation libraries such as
+  Plotly and Bokeh.
+- Shipped tiny pretrained models and accompanying evaluation utilities for
+  text and image classification.
+- Exposed a small command line interface (`previs`) to run preprocessing and
+  evaluation pipelines from the terminal.
+- Expanded documentation with step-by-step tutorials and examples (see below).
 
 
-## Possible Enhancements
+## Tutorials and Usage Examples
 
-- Integrate interactive visualization libraries (e.g., Plotly, Bokeh) for richer exploratory analysis.
-- Provide pretrained models and evaluation scripts for common NLP and CV tasks.
-- Add command-line utilities to run preprocessing and modeling pipelines.
-- Improve documentation with step-by-step tutorials and usage examples.
+### Interactive plots
+
+```python
+from previs.visualisations import interactive
+
+# Create a simple scatter plot using Plotly
+fig = interactive.plotly_scatter([1, 2, 3], [1, 4, 9])
+fig.show()
+```
+
+### Evaluating pretrained models
+
+```python
+from previs.models import pretrained
+
+texts = ["good movie", "bad movie"]
+labels = [1, 0]
+model = pretrained.SimpleTextSentimentModel()
+accuracy = pretrained.evaluate_classification(model, texts, labels)
+print(f"accuracy: {accuracy:.2f}")
+```
+
+### Command line utilities
+
+```bash
+$ previs preprocess "Some Text"
+some text
+
+$ previs eval-text "good movie,bad movie" "1,0"
+accuracy: 1.00
+```
 
 Also, since this is a growing tool and package, we would greatly help from your contribution :)
 

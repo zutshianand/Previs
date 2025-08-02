@@ -17,4 +17,7 @@ setup(
     install_requires=[
         'autogluon.tabular>=0.8.0',
     ],
+    entry_points={
+        'console_scripts': ['previs=previs.cli:main'],
+    },
 )
