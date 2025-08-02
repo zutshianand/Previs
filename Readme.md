@@ -42,5 +42,14 @@ is extremely helpful.
 We provide all these as part of this package. Although this package can be installed using ```pip```, we 
 highly recommend you to mould and modify the code as per your own convenience.
 
+
+## Possible Enhancements
+
+- Expand feature generation module with advanced feature engineering methods such as TF-IDF, word embeddings, and image augmentations.
+- Integrate interactive visualization libraries (e.g., Plotly, Bokeh) for richer exploratory analysis.
+- Provide pretrained models and evaluation scripts for common NLP and CV tasks.
+- Add command-line utilities to run preprocessing and modeling pipelines.
+- Improve documentation with step-by-step tutorials and usage examples.
+
 Also, since this is a growing tool and package, we would greatly help from your contribution :)
 
