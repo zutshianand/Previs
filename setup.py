@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='previs',
@@ -14,4 +14,7 @@ setup(
     keywords=['dataloaders', 'preprocessors', 'featuregeneration', 'convenience', 'visualisation', 'pytorch', 'models',
               'deep-learning', 'dataset', 'snippets'],
     classifiers=[],
+    install_requires=[
+        'autogluon.tabular>=0.8.0',
+    ],
 )
