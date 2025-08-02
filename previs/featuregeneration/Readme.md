@@ -3,8 +3,13 @@
 Feature engineering is very important in machine learning and deep learning problems.
 Generating features usually takes a lot of time and depth of knowledge of the
 problem statement. However, we can also use sophisticated techniques to do that.
-We will be going over some techniques and tools which you can use to make this 
+We will be going over some techniques and tools which you can use to make this
 task of feature engineering a little easier.
+
+The `advanced` module supplements the existing utilities with pure Python
+implementations for common techniques such as TF-IDF, averaged word embeddings
+and simple image augmentations.  These helpers avoid heavy third-party
+dependencies and are suitable for lightweight experimentation.
 
 ## Feature tools
 
