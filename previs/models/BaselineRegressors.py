@@ -38,7 +38,7 @@ def linear_regression(X_train, y_train,
     @param y_train: Training dataset output
     @param X_val: Validation dataset input
     @param y_val: Validation dataset output
-    @return: The trained model, MAE, MSE and RMSE
+    @return: The trained model, MAE, MSE and sqrt(MSE)
     """
     regressor = LinearRegression()
     regressor.fit(X_train, y_train)
