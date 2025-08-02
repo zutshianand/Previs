@@ -39,13 +39,19 @@ this useful.
 in EDA and providing a one stop for all these tools along with a small manual as to what to use and when to use it
 is extremely helpful. 
 
-We provide all these as part of this package. Although this package can be installed using ```pip```, we 
+We provide all these as part of this package. Although this package can be installed using ```pip```, we
 highly recommend you to mould and modify the code as per your own convenience.
+
+
+## Recent Enhancements
+
+- Introduced an `advanced` feature generation module containing lightweight
+  implementations for TF-IDF, averaged word embeddings, and simple image
+  augmentation helpers.
 
 
 ## Possible Enhancements
 
-- Expand feature generation module with advanced feature engineering methods such as TF-IDF, word embeddings, and image augmentations.
 - Integrate interactive visualization libraries (e.g., Plotly, Bokeh) for richer exploratory analysis.
 - Provide pretrained models and evaluation scripts for common NLP and CV tasks.
 - Add command-line utilities to run preprocessing and modeling pipelines.
