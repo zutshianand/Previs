@@ -111,7 +111,11 @@ def get_distance_between_sentences(dataframe, text_col_name,
     """
     text_processor = TextProcessor()
     documents, text_col_name = build_clean_corpus(dataframe, text_col_name)
-    model = FT_gensim(size=100)
+    # ``gensim`` renamed the ``size`` argument to ``vector_size`` in v4.0.0.
+    # Using the old name raises a ``TypeError`` in newer versions which makes
+    # this utility unusable.  Instantiate ``FastText`` with the new
+    # ``vector_size`` keyword for compatibility with modern ``gensim``.
+    model = FT_gensim(vector_size=100)
     model.build_vocab(sentences=documents)
     model.train(sentences=documents,
                 epochs=model.epochs,
